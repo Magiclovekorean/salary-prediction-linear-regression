@@ -49,11 +49,13 @@ print(f"MSE: {mse}")
 
 
 
-features = df.drop(columns=["No", "house price of unit area"]).columns.tolist()
+features = df.drop(columns=["No", "house price of unit area"]).columns
 
 X_predict = []
 for i in range(len(features)):
     X_predict.append(int(input(f"Enter {features[i]}")))
 
-y_predicted = model.predict(X_predict)
+y_predicted = model.predict([X_predict])
+
+print(f"The model predicted {y_predicted}")
 
